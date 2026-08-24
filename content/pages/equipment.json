@@ -1,0 +1,170 @@
+{
+  "list": [
+    {
+      "items": [
+        {
+          "name": "MacBook Air M4",
+          "image": "https://res.liuyuyang.net/thrive/equipment/MacBook%20Air%20M4.jpg",
+          "price": 8757,
+          "description": "发布当天就买了，目前在为我创造价值"
+        },
+        {
+          "name": "iPhone 16 Pro Max",
+          "color": "#F6F6F8",
+          "image": "https://res.liuyuyang.net/thrive/equipment/iPhone16ProMax.jpg",
+          "price": 8299,
+          "description": "第一次用苹果，感觉除了流畅些，其他的都不如安卓 [:狗头]"
+        },
+        {
+          "name": "Xiaomi 7s Pro",
+          "image": "https://res.liuyuyang.net/thrive/equipment/Xiaomi7sPro.png",
+          "price": 2300,
+          "description": "用来学习是个不错的选择"
+        },
+        {
+          "name": "Redmi A27U 4K 显示器",
+          "image": "https://res.liuyuyang.net/thrive/equipment/Redmi%20A27U%204K%20%E6%98%BE%E7%A4%BA%E5%99%A8.png",
+          "price": 1399,
+          "description": "4K 显示屏性价比天花板"
+        },
+        {
+          "name": "Magic Keyboard",
+          "image": "https://res.liuyuyang.net/thrive/equipment/Magic%20Keyboard.jpg",
+          "price": 599,
+          "description": "习惯了用触控板，自然少不了这个"
+        },
+        {
+          "name": "洛斐小顺青春版",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E6%B4%9B%E6%96%90%E5%B0%8F%E9%A1%BA%E9%9D%92%E6%98%A5%E7%89%88.jpeg",
+          "price": 399,
+          "description": "目前我的主力键盘"
+        },
+        {
+          "name": "Keychron K3 Max",
+          "color": "#E9E9E9",
+          "image": "https://res.liuyuyang.net/thrive/equipment/Keychron%20K3%20Max.jpeg",
+          "price": 379,
+          "description": "比小顺手感略差些"
+        },
+        {
+          "name": "ROG月刃无线AimPoint36k",
+          "color": "#E9E9E9",
+          "image": "https://res.liuyuyang.net/thrive/equipment/ROGAimPoint36k.png",
+          "price": 319,
+          "description": "颜值、手感和续航都很 Nice，可惜没有无极滚轮功能"
+        }
+      ],
+      "category": "正在使用的装备",
+      "description": "这些是我的核心生产力设备"
+    },
+    {
+      "items": [
+        {
+          "name": "MacBook Air M2",
+          "image": "https://res.liuyuyang.net/thrive/equipment/MacBook%20Air%20M2.png",
+          "price": 10017,
+          "description": "第四台电脑， 用了半年以 6k 价位卖给了同学， 几乎每个月亏损 1k 🥺"
+        },
+        {
+          "name": "华硕灵耀 14",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E5%8D%8E%E7%A1%95%E7%81%B5%E8%80%80%2014.png",
+          "price": 6596,
+          "description": "我的第三台电脑，我比较看重这台电脑的屏幕显示效果。可不知道为什么电脑各方面配置还不错，但经常死机，不夸张的说一天能死机最起码 5 次，只能强制重启。最终用了半年多以 4k 出掉了 😤"
+        },
+        {
+          "name": "联想拯救者 R900k",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E8%81%94%E6%83%B3%E6%8B%AF%E6%95%91%E8%80%85%20R900k.jpg",
+          "price": 9298,
+          "description": "我的第二台电脑，买来之后几乎没打过游戏，每天在教室搬来搬去 用了一年左右干脆 5k 卖掉了"
+        },
+        {
+          "name": "联想小新 14",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E8%81%94%E6%83%B3%E5%B0%8F%E6%96%B0%2014.jpg",
+          "price": 4279,
+          "description": "我的第一台电脑，用了 2 年以 2700 卖掉，还挺保值的 😌"
+        },
+        {
+          "name": "小米 14 Pro",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E5%B0%8F%E7%B1%B3%2014%20Pro.jpg",
+          "price": 4999,
+          "description": "我的第三款小米手机"
+        },
+        {
+          "name": "小米 13",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E5%B0%8F%E7%B1%B3%2013.jpg",
+          "price": 3920,
+          "description": "我的第二款小米手机"
+        },
+        {
+          "name": "小米 10 至尊纪念版",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E5%B0%8F%E7%B1%B3%2010%20%E8%87%B3%E5%B0%8A%E7%BA%AA%E5%BF%B5%E7%89%88.webp",
+          "price": 5599,
+          "description": "我的第一款小米手机，用了 2 年以 1500 元卖掉了"
+        },
+        {
+          "name": "Vivo X23",
+          "image": "https://res.liuyuyang.net/thrive/equipment/Vivo%20X23.jpg",
+          "price": 2100,
+          "description": "我的第一款安卓手机"
+        },
+        {
+          "name": "iPhone SE",
+          "image": "https://res.liuyuyang.net/thrive/equipment/iPhone%20SE.jpg",
+          "price": 0,
+          "description": "第一次用苹果 🤩"
+        },
+        {
+          "name": "HUAWEI FreeBuds SE 2",
+          "image": "https://res.liuyuyang.net/thrive/equipment/HUAWEI%20FreeBuds%20SE%202.png",
+          "price": 175,
+          "description": "还可以，只可惜不支持降噪和多设备连接"
+        },
+        {
+          "name": "漫步者 LOLLI3 ANC",
+          "color": "#829887",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E6%BC%AB%E6%AD%A5%E8%80%85%20LOLLI3%20ANC.jpg",
+          "price": 469,
+          "description": "最终还是丢了 😭，以后不会再买这么贵的耳机了"
+        },
+        {
+          "name": "小度降噪耳机 Pro",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E5%B0%8F%E5%BA%A6%E9%99%8D%E5%99%AA%E8%80%B3%E6%9C%BA%20Pro.webp",
+          "price": 438,
+          "description": "丢了 😭"
+        },
+        {
+          "name": "漫步者 LolliPods plus",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E6%BC%AB%E6%AD%A5%E8%80%85%20LolliPods%20plus.jpg",
+          "price": 279,
+          "description": "丢了 😭"
+        },
+        {
+          "name": "腹灵 MK800",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E8%85%B9%E7%81%B5%20MK800.webp",
+          "price": 449,
+          "description": "做工和外观都不错，只是按压偏重适合打游戏，最终以 200 元卖给了同学"
+        },
+        {
+          "name": "RK987",
+          "image": "https://res.liuyuyang.net/thrive/equipment/RK987.webp",
+          "price": 273,
+          "description": "键盘进水导致部分按键失灵，但不影响打游戏，后来以 20 元送给了同学"
+        },
+        {
+          "name": "联想拯救者 M600",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E8%81%94%E6%83%B3%E6%8B%AF%E6%95%91%E8%80%85%20M600.jpg",
+          "price": 205,
+          "description": "手感还不错，只是过保就坏😠，修的话也不划算就扔掉了"
+        },
+        {
+          "name": "联想拯救者无线鼠标 M7",
+          "image": "https://res.liuyuyang.net/thrive/equipment/%E8%81%94%E6%83%B3%E6%8B%AF%E6%95%91%E8%80%85%E6%97%A0%E7%BA%BF%E9%BC%A0%E6%A0%87%20M7.jpg",
+          "price": 199,
+          "description": "外观和手感都不错，尤其是滚轮支持无极滚动"
+        }
+      ],
+      "category": "以往的设备",
+      "description": "这些设备已经退役，但它们曾经陪伴我度过了一段美好的时光"
+    }
+  ]
+}

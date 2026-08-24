@@ -1,0 +1,38 @@
+{
+  "primaryColor": "#3b82f6",
+  "darkMode": "system",
+  "enableAnimation": true,
+  "banner": {
+    "enable": true,
+    "title": "kerntau",
+    "subtitles": [
+      "心中有景,花香满径",
+      "在有序的世界里，寻一处生活的归栈",
+      "探索全栈开发、云原生与架构设计"
+    ],
+    "typedSpeed": 80,
+    "showArrow": true
+  },
+  "heroCard": {
+    "enable": true,
+    "recommendArticles": [],
+    "techStack": [
+      {
+        "name": "React 19",
+        "icon": "RiReactjsLine"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "SiTypescript"
+      },
+      {
+        "name": "Rsbuild",
+        "icon": "SiRspack"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "SiTailwindcss"
+      }
+    ]
+  }
+}

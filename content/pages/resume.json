@@ -1,0 +1,147 @@
+{
+  "links": {
+    "blog": "https://liuyuyang.net/",
+    "csdn": "https://thrive.blog.csdn.net",
+    "github": "https://github.com/LiuYuYang01"
+  },
+  "skills": [
+    "熟练 HTML5、CSS3、Flex、Scss、TailwindCSS 能够精准还原 UI 设计师的产品原型图，实现产品级的复现",
+    "熟练 TypeScript、JavaScript、jQuery、面向对象、闭包、原型链、WebApi、原生DOM",
+    "熟练 Vue2 / 3 相关生态：Axios、Vuex、Pinia",
+    "熟练 React18 相关生态：NextJS、Redux、Zustand、Ahooks、Motion",
+    "熟练 Uniapp 完成多端适配 以及 原生微信小程序开发",
+    "熟练 Echarts 数据可视化开发 且 能够根据业务需求进行自定义扩展",
+    "熟练 Ant Design、NextUI、Element UI、Vant、Naive UI、Bootstrap 等多种组件库的使用",
+    "熟悉 NodeJS 相关生态：Express、NextJS、NestJS、Prisma",
+    "熟悉 Python Flask 及 SQLAlchemy 对象映射（ORM）框架",
+    "熟悉 Electron 跨平台桌面应用开发框架",
+    "了解 Remix 全栈开发框架",
+    "了解 WebPack、Vite 等打包构建工具",
+    "熟悉 Spring Boot、Spring MVC、Mybatis Plus 等主流框架",
+    "熟练 MySQL 关系型数据库，具备手写 SQL 及复杂查询的能力",
+    "了解 Spring Cloud 微服务框架及常用的组件 Nacos、OpenFeign、Gateway",
+    "熟悉 Linux 常用命令以及 Nginx 基本配置",
+    "熟悉 Docker 基本命令、容器编排、镜像构建，并熟练使用可视化工具如：宝塔、1Panel 等，并有项目部署上线的经验"
+  ],
+  "projects": [
+    {
+      "name": "ThriveX CMS 建站管理系统",
+      "role": "全栈开发（NextJS + Spring Boot）",
+      "links": {
+        "api": "https://api.liuyuyang.net/doc.html",
+        "docs": "https://docs.liuyuyang.net/",
+        "preview": "https://liuyuyang.net/",
+        "website": "https://thrivex.liuyuyang.net/"
+      },
+      "period": "2023.03-至今",
+      "techStack": {
+        "backend": "Spring Boot、Mybatis Plus、MySQL、Qiniu、Swagger、Python、Flask、SQLalchemy",
+        "frontend": "React、NextJS、TypeScript、Zustand、TailwindCSS、Scss、Next UI、Antd UI、Echarts、React Hook Form、Ahooks、百度统计API、高德地图API、Vue3、Pinia、Element UI",
+        "deployment": "采用 Docker Compose 一键部署、采用 Nginx 实现反向代理、SSL 证书等"
+      },
+      "highlights": [
+        "【AI】采用科大讯飞AI大模型实现文章续写、优化、总结、智能问答",
+        "【权限】RBAC 权限管理，动态路由、按钮权限、多用户登录",
+        "【地图】采用 高德地图实现旅游足迹可视化等功能",
+        "【安全】限制异地登录 及 以及多设备登录同一账号",
+        "【交互】采用 TailwindCSS 实现白天、昼夜主题切换效果",
+        "【适配】采用 TailwindCSS 媒体查询实现手机、平板、电脑三端适配",
+        "【可视化】采用 百度统计API + Echarts 实现数据可视化",
+        "【SEO】采用 NextJS 服务端渲染技术进行 SEO 优化，在 Lighthouse 中评分 100%",
+        "【文件系统】同时兼容阿里云、腾讯云、华为云、七牛云、百度云等对象存储",
+        "【一键部署】采用 Docker Compose 脚本实现前端、控制端、后端、数据库一键部署",
+        "【自动化部署】利用 Vercel 实现高效的持续集成与自动化部署"
+      ],
+      "description": [
+        "ThriveX 是一个年轻、高颜值、全开源、永不收费的现代化 CMS 管理系统，项目组成是前端、控制端、后端，采用前后端分离开发式，是一个 NextJS + Spring Boot 的产物。"
+      ],
+      "achievements": [
+        "一个人完成产品、UI、前端、控制端、后端、数据库、测试 以及 项目部署上线",
+        "项目代码全开源，截止目前在 GitHub 已经有 1867 条 Commit 记录，收获 700+ Star，156+ Fork",
+        "目前已有多数用户在使用该系统，粉丝群已超千名用户"
+      ],
+      "repositories": [
+        {
+          "url": "https://github.com/LiuYuYang01/ThriveX-Blog",
+          "name": "前端"
+        },
+        {
+          "url": "https://github.com/LiuYuYang01/ThriveX-Admin",
+          "name": "控制端"
+        },
+        {
+          "url": "https://github.com/LiuYuYang01/ThriveX-Server",
+          "name": "后端"
+        }
+      ]
+    },
+    {
+      "name": "云上校园",
+      "role": "全栈开发（小程序 + Eggjs）",
+      "period": "2022.12-2023.05",
+      "techStack": "微信小程序、Vant、Vue2、Element UI、Echarts、Nodejs（Eggjs）、MySQL、Socket.io",
+      "challenges": [],
+      "highlights": [
+        "一、通过 Echarts 搭配百度统计API实现数据可视化",
+        "二、微信登录、登录状态检测",
+        "三、实时通讯聊天室：支持私聊、群聊、表情、图片聊天记录存储"
+      ],
+      "description": [
+        "云上校园是一个专注提升大学校园生活质量与便利性的平台，打造一个集信息传播、学习辅助、就业赚取、维权举报、科技体验于一体的综合服务平台。"
+      ],
+      "achievements": "上海市第十五届计算机应用能力大赛三等奖",
+      "repositories": []
+    }
+  ],
+  "education": {
+    "major": "软件工程",
+    "degree": "本科",
+    "period": "2021-2026",
+    "school": "上海开放大学",
+    "achievements": [
+      "上海市计算机应用能力大赛三等奖",
+      "上海开放大学创新项目奖",
+      "二等奖学金",
+      "计算机软件著作权"
+    ]
+  },
+  "advantages": [
+    "上海市第十五届计算机应用能力大赛 三等奖、创新项目奖",
+    "GitHub 开源项目作者（ThriveX CMS 建站系统）Star 900+",
+    "ThriveX CMS 建站系统 计算机软件著作权（申请中）",
+    "具备项目从 0 到 1 部署上线的经验：https://liuyuyang.net/",
+    "利用业余时间持续输出技术文章，目前在 CSDN 累计拥有 1700+ 粉丝",
+    "熟练 Spring Boot 以及 Express、Flask 等多种后端开发语言 对前后端接口联调过程中的问题能够进行清晰定位",
+    "能够独当一面，从 0 到 1 构建前端项目 且 具备完整项目设计、研发、部署、全链路问题排查能力"
+  ],
+  "personalInfo": {
+    "age": "22岁",
+    "name": "刘宇阳",
+    "title": "前端开发工程师",
+    "avatar": "https://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640",
+    "contact": {
+      "email": "liuyuyang1024@yeah.net",
+      "phone": "1778811xxxx",
+      "github": "https://github.com/LiuYuYang01"
+    },
+    "location": "郑州"
+  },
+  "workExperience": [
+    {
+      "period": "2024.07-至今",
+      "company": "宁波 XXXX 数字科技有限公司",
+      "position": "前端开发工程师",
+      "responsibilities": [
+        "完成日常项目的开发与迭代，高质量完成项目交付与上线"
+      ]
+    },
+    {
+      "period": "2024.05-2024.06",
+      "company": "成都 XX 科技有限公司",
+      "position": "前端开发工程师",
+      "responsibilities": [
+        "负责公司内部 Todo 系统开发与改进，采用 Electron 桌面软件开发框架"
+      ]
+    }
+  ]
+}

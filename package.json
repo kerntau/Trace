@@ -1,0 +1,29 @@
+{
+  "name": "trace-monorepo",
+  "version": "5.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "dev:web": "turbo run dev --filter=@trace/web",
+    "dev:admin": "turbo run dev --filter=@trace/admin",
+    "build": "turbo run build",
+    "build:web": "turbo run build --filter=@trace/web",
+    "build:admin": "turbo run build --filter=@trace/admin",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "tailwindcss": "^4.1.11",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "19.2.7",
+      "react-dom": "19.2.7"
+    }
+  },
+  "packageManager": "pnpm@10.5.2"
+}

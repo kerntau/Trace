@@ -1,0 +1,18 @@
+[
+  {
+    "id": 3,
+    "content": "心中无女人，代码自然神",
+    "likes": 27,
+    "mood": "🥰",
+    "location": "浙江省宁波市北仑区",
+    "createTime": 1783153776358
+  },
+  {
+    "id": 4,
+    "content": "今天的雨好大",
+    "likes": 5,
+    "mood": "😢",
+    "location": "浙江省宁波市北仑区",
+    "createTime": 1783157296910
+  }
+]

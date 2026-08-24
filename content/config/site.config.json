@@ -1,0 +1,101 @@
+{
+  "title": "kerntau",
+  "subtitle": "心中有景,花香满径",
+  "description": "个人技术博客与知识库，记录全栈开发、云原生、系统架构与工程实践心得。",
+  "url": "https://keru.in",
+  "logo": "/logo.png",
+  "favicon": "/favicon.ico",
+  "author": {
+    "name": "kerntau",
+    "avatar": "/avatar.webp",
+    "description": "心中有景,花香满径 | 全栈工程师与开源爱好者",
+    "email": "hi@keru.in",
+    "github": "https://github.com/kerntau",
+    "socials": [
+      {
+        "name": "GitHub",
+        "icon": "RiGithubFill",
+        "url": "https://github.com/kerntau"
+      },
+      {
+        "name": "Bilibili",
+        "icon": "RiBilibiliFill",
+        "url": "https://space.bilibili.com/9655855"
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "RiTwitterXFill",
+        "url": "https://x.com/Kerntao"
+      },
+      {
+        "name": "Email",
+        "icon": "RiMailFill",
+        "url": "mailto:hi@keru.in"
+      }
+    ]
+  },
+  "navMenu": [
+    {
+      "title": "首页",
+      "path": "/",
+      "icon": "RiHome5Line"
+    },
+    {
+      "title": "文章",
+      "path": "/article",
+      "icon": "RiBookOpenLine"
+    },
+    {
+      "title": "分类",
+      "path": "/cate",
+      "icon": "RiFolderLine"
+    },
+    {
+      "title": "标签",
+      "path": "/tags",
+      "icon": "RiPriceTag3Line"
+    },
+    {
+      "title": "说说",
+      "path": "/record",
+      "icon": "RiChatSmile2Line"
+    },
+    {
+      "title": "足迹",
+      "path": "/footprint",
+      "icon": "RiFootprintLine"
+    },
+    {
+      "title": "里程碑",
+      "path": "/milestone",
+      "icon": "RiFlagLine"
+    },
+    {
+      "title": "友链",
+      "path": "/friend",
+      "icon": "RiLinksLine"
+    },
+    {
+      "title": "关于",
+      "path": "/my",
+      "icon": "RiUser3Line"
+    }
+  ],
+  "footer": {
+    "copyright": "© 2026 kerntau. All Rights Reserved.",
+    "sinceYear": 2024,
+    "customText": "心中有景,花香满径 | 萌ICP备20268811号 | Powered by Trace SSG"
+  },
+  "seo": {
+    "keywords": [
+      "kerntau",
+      "全栈开发",
+      "云原生",
+      "系统架构",
+      "React 19",
+      "Rsbuild",
+      "Trace",
+      "SSG"
+    ]
+  }
+}
