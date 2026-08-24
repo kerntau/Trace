@@ -1,14 +1,11 @@
 import React from "react";
 import { Article } from "@trace/config";
 import { formatDate } from "@trace/utils";
-import { Card, CardBody, Chip } from "@trace/ui";
 import {
   RiCalendarLine,
   RiTimeLine,
   RiPushpinFill,
-  RiPriceTag3Line,
-  RiArrowRightLine,
-  RiFileTextLine
+  RiArrowRightLine
 } from "react-icons/ri";
 
 export interface ArticleCardProps {
@@ -24,36 +21,28 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onSelect }) =
   };
 
   return (
-    <div
+    <article
       onClick={handleClick}
-      className="group relative cursor-pointer select-none rounded-3xl glass-card border border-divider/60 hover:border-primary/40 p-5 md:p-6 transition-all duration-300 flex flex-col justify-between"
+      className="gentle-card rounded-3xl p-5 md:p-6 cursor-pointer select-none group flex flex-col justify-between"
     >
-      {/* Top Meta Line */}
       <div>
+        {/* 顶部元数据行 */}
         <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div className="flex items-center gap-2">
             {article.isTop && (
-              <Chip
-                size="sm"
-                color="warning"
-                variant="shadow"
-                startContent={<RiPushpinFill className="text-xs ml-1" />}
-                className="font-bold text-[11px] shadow-warning/20"
-              >
-                置顶
-              </Chip>
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-500/15 text-amber-600 dark:text-amber-400 text-[11px] font-semibold">
+                <RiPushpinFill className="text-[10px]" />
+                <span>置顶</span>
+              </span>
             )}
-            <Chip
-              size="sm"
-              variant="flat"
-              color="primary"
-              className="font-semibold text-[11px]"
-            >
-              {article.category || "默认分类"}
-            </Chip>
+            {article.category && (
+              <span className="px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-[11px] font-medium">
+                {article.category}
+              </span>
+            )}
           </div>
 
-          <div className="flex items-center gap-3 text-[11px] text-default-400 font-medium">
+          <div className="flex items-center gap-3 text-[11px] text-muted font-medium">
             <span className="flex items-center gap-1">
               <RiCalendarLine className="text-xs" />
               {formatDate(article.createTime)}
@@ -65,41 +54,39 @@ export const ArticleCard: React.FC<ArticleCardProps> = ({ article, onSelect }) =
           </div>
         </div>
 
-        {/* Title */}
-        <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-200 mb-2.5 leading-snug">
+        {/* 标题 */}
+        <h3 className="text-base md:text-lg font-bold text-foreground group-hover:text-accent transition-colors duration-200 mb-2 leading-snug">
           {article.title}
         </h3>
 
-        {/* Description / Excerpt */}
-        <p className="text-xs md:text-sm text-default-500 line-clamp-2 leading-relaxed mb-4">
-          {article.description || "点击阅读全文以查看本篇技术博文的详细分析与完整实现。"}
+        {/* 摘要 */}
+        <p className="text-xs md:text-sm text-muted line-clamp-2 leading-relaxed mb-4">
+          {article.description || "点击阅读全文以查看本篇博文的详细分析与完整实现。"}
         </p>
       </div>
 
-      {/* Bottom Footer: Tags & Read more */}
-      <div className="pt-3 border-t border-divider/40 flex items-center justify-between gap-2">
+      {/* 底部：标签云与阅读按钮 */}
+      <div className="pt-3 border-t border-border/70 flex items-center justify-between gap-2">
         <div className="flex flex-wrap items-center gap-1.5 overflow-hidden max-h-6">
           {article.tags && article.tags.length > 0 ? (
             article.tags.slice(0, 3).map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-0.5 text-[11px] px-2 py-0.5 rounded-md bg-default-100 dark:bg-default-50/20 text-default-600 font-medium group-hover:bg-primary/10 group-hover:text-primary transition-colors"
+                className="inline-flex items-center text-[11px] px-2 py-0.5 rounded-lg bg-default/50 text-muted font-medium group-hover:text-accent group-hover:bg-accent/10 transition-colors"
               >
                 #{tag}
               </span>
             ))
           ) : (
-            <span className="text-[11px] text-default-400 flex items-center gap-1">
-              <RiFileTextLine /> 文章归档
-            </span>
+            <span className="text-[11px] text-muted">技术博文</span>
           )}
         </div>
 
-        <div className="text-xs font-semibold text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform shrink-0">
-          <span>阅读</span>
+        <div className="text-xs font-semibold text-accent flex items-center gap-1 group-hover:translate-x-1 transition-transform shrink-0">
+          <span>阅读全文</span>
           <RiArrowRightLine className="text-sm" />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
