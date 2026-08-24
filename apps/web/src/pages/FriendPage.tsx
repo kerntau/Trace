@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { GlobalContentData, FriendLinkItem } from "@trace/config";
-import { Card, CardBody, Avatar, Chip, Button, Input } from "@trace/ui";
+import { GlobalContentData } from "@trace/config";
+import { Avatar, Button } from "@trace/ui";
 import {
   RiLinksLine,
   RiSearch2Line,
   RiSendPlaneLine,
-  RiCompass3Line,
-  RiSparklingFill,
-  RiExternalLinkLine
+  RiExternalLinkLine,
+  RiFileCopyLine,
+  RiCheckLine,
+  RiSparklingFill
 } from "react-icons/ri";
 
 export interface FriendPageProps {
@@ -17,6 +18,7 @@ export interface FriendPageProps {
 
 export const FriendPage: React.FC<FriendPageProps> = ({ data }) => {
   const [search, setSearch] = useState("");
+  const [copiedFormat, setCopiedFormat] = useState<string | null>(null);
   const friends = data.friendLinks || [];
 
   const filteredFriends = friends.filter(
@@ -25,35 +27,50 @@ export const FriendPage: React.FC<FriendPageProps> = ({ data }) => {
       f.desc.toLowerCase().includes(search.toLowerCase())
   );
 
+  const copyConfig = (format: "yaml" | "json") => {
+    const configData = format === "yaml"
+      ? `- name: kerntau\n  desc: 心中有景，花香满径\n  link: https://trace.dev\n  avatar: https://trace.dev/avatar.webp`
+      : JSON.stringify({
+          name: "kerntau",
+          desc: "心中有景，花香满径",
+          link: "https://trace.dev",
+          avatar: "https://trace.dev/avatar.webp"
+        }, null, 2);
+
+    navigator.clipboard.writeText(configData);
+    setCopiedFormat(format);
+    setTimeout(() => setCopiedFormat(null), 2000);
+  };
+
   return (
     <div className="min-h-screen bg-subtle-grid pt-24 pb-20 px-4">
       <div className="max-w-[1240px] mx-auto">
-        {/* Header Hero */}
+        {/* 顶部标题区 */}
         <div className="text-center max-w-xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold mb-3">
-            <RiCompass3Line /> 朋友圈 (Friends & Feeds)
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-3">
+            <RiSparklingFill className="text-xs" /> 友链空间 · Friends Radar
           </div>
-          <h1 className="text-3xl md:text-5xl font-black text-foreground mb-3">
-            <span className="text-gradient-primary">海内存知己，天涯若比邻</span>
+          <h1 className="text-2xl md:text-4xl font-bold text-foreground mb-3 tracking-tight">
+            海内存知己，天涯若比邻
           </h1>
-          <p className="text-xs md:text-sm text-default-500 leading-relaxed mb-6">
-            这里汇聚了优质的独立博客作者与开源开发者，欢迎常来串门交流。
+          <p className="text-xs md:text-sm text-muted leading-relaxed mb-6">
+            记录常看常新的技术伙伴与开源探索者
           </p>
 
-          {/* Search Box */}
+          {/* 搜索框 */}
           <div className="relative max-w-md mx-auto">
             <input
               type="text"
-              placeholder="搜索友链博主名称或描述..."
+              placeholder="搜索博主名称或简介..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full py-2.5 pl-10 pr-4 rounded-2xl glass-panel text-xs text-foreground placeholder:text-default-400 focus:outline-none focus:ring-2 focus:ring-primary/40 transition"
+              className="w-full py-2.5 pl-10 pr-4 rounded-2xl gentle-card text-xs text-foreground placeholder:text-muted/70 focus:outline-none focus:border-accent transition"
             />
-            <RiSearch2Line className="absolute left-3.5 top-1/2 -translate-y-1/2 text-default-400 text-sm" />
+            <RiSearch2Line className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted text-sm" />
           </div>
         </div>
 
-        {/* Friends Bento Grid */}
+        {/* 友链网格 */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
           {filteredFriends.map((friend) => (
             <a
@@ -61,58 +78,81 @@ export const FriendPage: React.FC<FriendPageProps> = ({ data }) => {
               href={friend.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass-card rounded-3xl p-4 md:p-5 flex flex-col justify-between group hover:border-primary/50 transition-all duration-300 relative overflow-hidden"
+              className="gentle-card rounded-3xl p-5 flex flex-col justify-between group cursor-pointer"
             >
-              <div className="flex items-start gap-3.5 mb-3">
-                <Avatar
-                  src={friend.avatar}
-                  className="w-12 h-12 rounded-2xl ring-2 ring-divider/50 group-hover:scale-105 transition-transform shrink-0"
-                />
-                <div className="flex flex-col min-w-0">
-                  <div className="flex items-center gap-1">
-                    <span className="font-bold text-sm text-foreground group-hover:text-primary transition-colors truncate">
-                      {friend.name}
+              <div>
+                <div className="flex items-start gap-3.5 mb-3">
+                  <Avatar
+                    src={friend.avatar}
+                    name={friend.name}
+                    className="w-11 h-11 rounded-full ring-2 ring-accent/20 shrink-0"
+                  />
+                  <div className="flex flex-col min-w-0">
+                    <div className="flex items-center gap-1">
+                      <span className="font-bold text-sm text-foreground group-hover:text-accent transition-colors truncate">
+                        {friend.name}
+                      </span>
+                      <RiExternalLinkLine className="text-xs text-muted opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
+                    </div>
+                    <span className="text-[11px] text-muted truncate">
+                      {friend.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
                     </span>
-                    <RiExternalLinkLine className="text-xs text-default-400 opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
                   </div>
-                  <span className="text-[11px] text-default-400 truncate">
-                    {friend.link.replace(/^https?:\/\//, "").replace(/\/$/, "")}
-                  </span>
                 </div>
+
+                <p className="text-xs text-muted line-clamp-2 leading-relaxed mb-2">
+                  {friend.desc || "保持好奇与热情，探索广阔的技术世界。"}
+                </p>
               </div>
 
-              <p className="text-xs text-default-500 line-clamp-2 leading-relaxed h-8">
-                {friend.desc || "这位博主很神秘，没有留下详细描述~"}
-              </p>
+              <div className="pt-3 border-t border-border/70 flex items-center justify-between text-[11px] text-muted">
+                <span>ONLINE</span>
+                <span className="text-accent font-medium flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                  访问站点 <RiExternalLinkLine className="text-xs" />
+                </span>
+              </div>
             </a>
           ))}
         </div>
 
-        {/* Apply Section */}
-        <div className="glass-card rounded-3xl p-8 max-w-3xl mx-auto border border-divider/70 text-center">
-          <h3 className="text-lg font-bold text-foreground mb-2 flex items-center justify-center gap-2">
-            <RiSendPlaneLine className="text-primary" /> 申请友链与互换
+        {/* 友链申请卡片 */}
+        <div className="gentle-card rounded-3xl p-8 max-w-2xl mx-auto text-center">
+          <h3 className="text-base font-bold text-foreground mb-2 flex items-center justify-center gap-2">
+            <RiSendPlaneLine className="text-accent" /> 友链申请与配置互换
           </h3>
-          <p className="text-xs text-default-500 mb-6 max-w-lg mx-auto">
-            欢迎独立技术博主交换友链！请确保网站能长期稳定访问并具有原创内容。
+          <p className="text-xs text-muted mb-6 max-w-md mx-auto">
+            欢迎技术博主交换友链！点击下方按钮可一键复制本站配置信息。
           </p>
 
-          <div className="bg-default-100/60 dark:bg-default-50/10 p-4 rounded-2xl text-left text-xs font-mono text-default-700 max-w-md mx-auto mb-6 select-all border border-divider/40">
-            <div>name: kerntau</div>
-            <div>desc: 心中有景,花香满径</div>
-            <div>link: https://keru.in</div>
-            <div>avatar: https://keru.in/avatar.webp</div>
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+            <Button
+              size="sm"
+              variant="flat"
+              onClick={() => copyConfig("yaml")}
+              className="rounded-xl text-xs"
+            >
+              {copiedFormat === "yaml" ? <RiCheckLine className="text-success mr-1" /> : <RiFileCopyLine className="mr-1" />}
+              {copiedFormat === "yaml" ? "已复制 YAML 配置" : "复制 YAML 配置"}
+            </Button>
+            <Button
+              size="sm"
+              variant="flat"
+              onClick={() => copyConfig("json")}
+              className="rounded-xl text-xs"
+            >
+              {copiedFormat === "json" ? <RiCheckLine className="text-success mr-1" /> : <RiFileCopyLine className="mr-1" />}
+              {copiedFormat === "json" ? "已复制 JSON 配置" : "复制 JSON 配置"}
+            </Button>
           </div>
 
           <Button
             color="primary"
-            variant="shadow"
             size="sm"
             as="a"
-            href="mailto:hi@keru.in?subject=友链申请"
-            className="rounded-xl font-bold px-6 shadow-primary/20"
+            href="mailto:hi@trace.dev?subject=友链申请"
+            className="rounded-xl font-semibold px-6"
           >
-            发送申请邮件 (hi@keru.in)
+            发送申请邮件
           </Button>
         </div>
       </div>

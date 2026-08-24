@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { GlobalContentData } from "@trace/config";
 import { ArticleCard } from "../components/ArticleCard";
-import { Chip, Button } from "@trace/ui";
 import { RiPriceTag3Line } from "react-icons/ri";
 
 export interface TagPageProps {
@@ -18,47 +17,53 @@ export const TagPage: React.FC<TagPageProps> = ({ data, activeTag, onNavigate })
     : data.articles;
 
   return (
-    <div className="max-w-[1000px] mx-auto px-4 py-10 pt-24">
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">文章标签</h1>
-        <p className="text-xs text-default-400">共 {data.tags.length} 个标签索引</p>
-      </div>
+    <div className="min-h-screen bg-subtle-grid pt-24 pb-20 px-4">
+      <div className="max-w-[1000px] mx-auto">
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">文章标签索引</h1>
+          <p className="text-xs text-muted">共 {data.tags.length} 个技术标签</p>
+        </div>
 
-      {/* Tag Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-        <Button
-          size="sm"
-          variant={selectedTag === "" ? "solid" : "flat"}
-          color={selectedTag === "" ? "primary" : "default"}
-          onClick={() => setSelectedTag("")}
-          className="rounded-xl font-semibold text-xs"
-        >
-          全部
-        </Button>
-        {data.tags.map((t) => (
-          <Button
-            key={t.name}
-            size="sm"
-            variant={selectedTag === t.name ? "solid" : "flat"}
-            color={selectedTag === t.name ? "primary" : "default"}
-            startContent={<RiPriceTag3Line />}
-            onClick={() => setSelectedTag(t.name)}
-            className="rounded-xl font-semibold text-xs"
+        {/* 标签 Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <button
+            type="button"
+            onClick={() => setSelectedTag("")}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+              selectedTag === ""
+                ? "bg-accent text-accent-foreground font-semibold shadow-xs"
+                : "bg-default/50 text-foreground/80 hover:bg-default"
+            }`}
           >
-            #{t.name} ({t.count})
-          </Button>
-        ))}
-      </div>
+            全部
+          </button>
+          {data.tags.map((t) => (
+            <button
+              key={t.name}
+              type="button"
+              onClick={() => setSelectedTag(t.name)}
+              className={`inline-flex items-center gap-1 px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                selectedTag === t.name
+                  ? "bg-accent text-accent-foreground font-semibold shadow-xs"
+                  : "bg-default/50 text-foreground/80 hover:bg-default"
+              }`}
+            >
+              <RiPriceTag3Line className="text-xs" />
+              <span>#{t.name} ({t.count})</span>
+            </button>
+          ))}
+        </div>
 
-      {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {filteredArticles.map((art) => (
-          <ArticleCard
-            key={art.slug}
-            article={art}
-            onSelect={(slug) => onNavigate && onNavigate(`/article/${slug}`)}
-          />
-        ))}
+        {/* 文章网格 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {filteredArticles.map((art) => (
+            <ArticleCard
+              key={art.slug}
+              article={art}
+              onSelect={(slug) => onNavigate && onNavigate(`/article/${slug}`)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

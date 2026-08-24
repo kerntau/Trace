@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { GlobalContentData } from "@trace/config";
 import { ArticleCard } from "../components/ArticleCard";
-import { Chip, Button } from "@trace/ui";
 import { RiFolderLine } from "react-icons/ri";
 
 export interface CategoryPageProps {
@@ -18,47 +17,53 @@ export const CategoryPage: React.FC<CategoryPageProps> = ({ data, activeCategory
     : data.articles;
 
   return (
-    <div className="max-w-[1000px] mx-auto px-4 py-10 pt-24">
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-black text-foreground mb-2">文章分类</h1>
-        <p className="text-xs text-default-400">共 {data.categories.length} 个分类目录</p>
-      </div>
+    <div className="min-h-screen bg-subtle-grid pt-24 pb-20 px-4">
+      <div className="max-w-[1000px] mx-auto">
+        <div className="mb-8 text-center">
+          <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">专栏分类目录</h1>
+          <p className="text-xs text-muted">共 {data.categories.length} 个技术专栏，{data.articles.length} 篇博文</p>
+        </div>
 
-      {/* Category Pills */}
-      <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-        <Button
-          size="sm"
-          variant={selectedCate === "" ? "solid" : "flat"}
-          color={selectedCate === "" ? "primary" : "default"}
-          onClick={() => setSelectedCate("")}
-          className="rounded-xl font-semibold text-xs"
-        >
-          全部 ({data.articles.length})
-        </Button>
-        {data.categories.map((c) => (
-          <Button
-            key={c.name}
-            size="sm"
-            variant={selectedCate === c.name ? "solid" : "flat"}
-            color={selectedCate === c.name ? "primary" : "default"}
-            startContent={<RiFolderLine />}
-            onClick={() => setSelectedCate(c.name)}
-            className="rounded-xl font-semibold text-xs"
+        {/* 分类 Pills */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+          <button
+            type="button"
+            onClick={() => setSelectedCate("")}
+            className={`px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+              selectedCate === ""
+                ? "bg-accent text-accent-foreground font-semibold shadow-xs"
+                : "bg-default/50 text-foreground/80 hover:bg-default"
+            }`}
           >
-            {c.name} ({c.count})
-          </Button>
-        ))}
-      </div>
+            全部 ({data.articles.length})
+          </button>
+          {data.categories.map((c) => (
+            <button
+              key={c.name}
+              type="button"
+              onClick={() => setSelectedCate(c.name)}
+              className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                selectedCate === c.name
+                  ? "bg-accent text-accent-foreground font-semibold shadow-xs"
+                : "bg-default/50 text-foreground/80 hover:bg-default"
+              }`}
+            >
+              <RiFolderLine className="text-xs" />
+              <span>{c.name} ({c.count})</span>
+            </button>
+          ))}
+        </div>
 
-      {/* Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        {filteredArticles.map((art) => (
-          <ArticleCard
-            key={art.slug}
-            article={art}
-            onSelect={(slug) => onNavigate && onNavigate(`/article/${slug}`)}
-          />
-        ))}
+        {/* 文章网格 */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {filteredArticles.map((art) => (
+            <ArticleCard
+              key={art.slug}
+              article={art}
+              onSelect={(slug) => onNavigate && onNavigate(`/article/${slug}`)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
