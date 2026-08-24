@@ -8,9 +8,6 @@ import { ArticleDetailPage } from "./pages/ArticleDetailPage";
 import { ArticleListPage } from "./pages/ArticleListPage";
 import { CategoryPage } from "./pages/CategoryPage";
 import { TagPage } from "./pages/TagPage";
-import { RecordPage } from "./pages/RecordPage";
-import { FootprintPage } from "./pages/FootprintPage";
-import { MilestonePage } from "./pages/MilestonePage";
 import { FriendPage } from "./pages/FriendPage";
 import { MyPage } from "./pages/MyPage";
 
@@ -48,7 +45,11 @@ export const App: React.FC<AppProps> = ({ initialData, initialPath = "/" }) => {
       return <ArticleDetailPage slug={slug} data={initialData} onNavigate={navigate} />;
     }
 
-    // 分类详情: /cate/:category
+    // 分类详情: /category/:category 或 /cate/:category
+    if (currentPath.startsWith("/category/")) {
+      const cate = decodeURIComponent(currentPath.replace("/category/", ""));
+      return <CategoryPage data={initialData} activeCategory={cate} onNavigate={navigate} />;
+    }
     if (currentPath.startsWith("/cate/")) {
       const cate = decodeURIComponent(currentPath.replace("/cate/", ""));
       return <CategoryPage data={initialData} activeCategory={cate} onNavigate={navigate} />;
@@ -63,20 +64,18 @@ export const App: React.FC<AppProps> = ({ initialData, initialPath = "/" }) => {
     switch (currentPath) {
       case "/":
         return <HomePage data={initialData} onNavigate={navigate} />;
+      case "/articles":
       case "/article":
         return <ArticleListPage data={initialData} onNavigate={navigate} />;
+      case "/categories":
       case "/cate":
         return <CategoryPage data={initialData} onNavigate={navigate} />;
       case "/tags":
         return <TagPage data={initialData} onNavigate={navigate} />;
-      case "/record":
-        return <RecordPage data={initialData} />;
-      case "/footprint":
-        return <FootprintPage data={initialData} />;
-      case "/milestone":
-        return <MilestonePage data={initialData} />;
+      case "/friends":
       case "/friend":
-        return <FriendPage data={initialData} />;
+        return <FriendPage data={initialData} onNavigate={navigate} />;
+      case "/me":
       case "/my":
         return <MyPage data={initialData} />;
       default:
@@ -86,7 +85,7 @@ export const App: React.FC<AppProps> = ({ initialData, initialPath = "/" }) => {
 
   return (
     <HeroProvider navigate={navigate}>
-      <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-primary/20 selection:text-primary">
+      <div className="min-h-screen flex flex-col bg-background text-foreground selection:bg-accent/20 selection:text-accent">
         <Header data={initialData} site={initialData.site} currentPath={currentPath} onNavigate={navigate} />
         <main className="flex-1">{renderContent()}</main>
         <Footer site={initialData.site} />

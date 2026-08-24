@@ -47,9 +47,6 @@ const staticRoutes = [
   { path: "article", title: "文章归档", desc: "全部文章归档列表" },
   { path: "cate", title: "全部分类", desc: "文章分类检索" },
   { path: "tags", title: "全部标签", desc: "文章标签云" },
-  { path: "record", title: "闪念说说", desc: "日常随笔与闪念" },
-  { path: "footprint", title: "旅行足迹", desc: "探索世界" },
-  { path: "milestone", title: "人生里程碑", desc: "重要节点与成长记录" },
   { path: "friend", title: "友链朋友圈", desc: "友情链接" },
   { path: "my", title: "关于我", desc: "作者简介与个人履历" }
 ];
@@ -84,9 +81,6 @@ const sitemapUrls = [
   `${baseUrl}/article`,
   `${baseUrl}/cate`,
   `${baseUrl}/tags`,
-  `${baseUrl}/record`,
-  `${baseUrl}/footprint`,
-  `${baseUrl}/milestone`,
   `${baseUrl}/friend`,
   `${baseUrl}/my`,
   ...data.articles.map((a) => `${baseUrl}/article/${a.slug}`)
