@@ -4,170 +4,120 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* 基础原色（在明暗模式间保持不变） */
+  /* 基础原色 */
   --white: oklch(100% 0 0);
   --black: oklch(0% 0 0);
-  --snow: oklch(0.9911 0 0);
-  --eclipse: oklch(0.2103 0.0059 285.89);
+  --snow: oklch(0.992 0.003 100);
+  --eclipse: oklch(0.20 0.008 140);
 
   /* 度量令牌 */
   --border-width: 1px;
   --field-border-width: 0px;
-  --radius: 0.75rem;
-  --field-radius: calc(var(--radius) * 1.5);
+  --radius: 1rem;
+  --field-radius: calc(var(--radius) * 1.25);
   --opacity-disabled: 0.5;
 
-  --shadow-panel: 0 4px 24px -4px rgba(0, 0, 0, 0.12);
-  --shadow-focus: 0 10px 20px 1px rgba(83, 157, 253, 0.15);
-  --breakpoint-xs: 400px;
-  --default-transition-duration: 300ms;
-}
-
-:root {
-  /* 基础颜色 */
-  --background: oklch(0.9702 0 0);
-  --foreground: var(--eclipse);
-
-  /* 表面分层 */
-  --surface: var(--white);
-  --surface-foreground: var(--foreground);
-  --surface-secondary: oklch(0.9524 0.0013 286.37);
-  --surface-secondary-foreground: var(--foreground);
-  --surface-tertiary: oklch(0.9373 0.0013 286.37);
-  --surface-tertiary-foreground: var(--foreground);
-
-  /* 覆盖层与弱化 */
-  --overlay: var(--white);
-  --overlay-foreground: var(--foreground);
-  --backdrop: oklch(0% 0 0 / 20%);
-  --muted: oklch(0.5517 0.0138 285.94);
-
-  /* 默认中性色 */
-  --default: oklch(94% 0.001 286.375);
-  --default-foreground: var(--eclipse);
-  --default-hover: color-mix(in oklab, var(--default) 96%, var(--default-foreground) 4%);
-  --default-soft: color-mix(in oklab, var(--default) 15%, transparent);
-  --default-soft-foreground: var(--default-foreground);
-
-  /* 强调色 (Accent) */
-  --accent: oklch(0.6204 0.195 253.83);
-  --accent-foreground: var(--snow);
-  --accent-hover: color-mix(in oklab, var(--accent) 90%, var(--accent-foreground) 10%);
-  --accent-soft: color-mix(in oklab, var(--accent) 15%, transparent);
-  --accent-soft-foreground: var(--accent);
-
-  /* 表单字段 */
-  --field-background: var(--white);
-  --field-foreground: oklch(0.2103 0.0059 285.89);
-  --field-placeholder: var(--muted);
-  --field-border: transparent;
-
-  /* 状态色 */
-  --success: oklch(0.7329 0.1935 150.81);
-  --success-foreground: var(--eclipse);
-  --success-hover: color-mix(in oklab, var(--success) 90%, var(--success-foreground) 10%);
-  --success-soft: color-mix(in oklab, var(--success) 15%, transparent);
-  --success-soft-foreground: var(--success);
-
-  --warning: oklch(0.7819 0.1585 72.33);
-  --warning-foreground: var(--eclipse);
-  --warning-hover: color-mix(in oklab, var(--warning) 90%, var(--warning-foreground) 10%);
-  --warning-soft: color-mix(in oklab, var(--warning) 15%, transparent);
-  --warning-soft-foreground: var(--warning);
-
-  --danger: oklch(0.6532 0.2328 25.74);
-  --danger-foreground: var(--snow);
-  --danger-hover: color-mix(in oklab, var(--danger) 90%, var(--danger-foreground) 10%);
-  --danger-soft: color-mix(in oklab, var(--danger) 15%, transparent);
-  --danger-soft-foreground: var(--danger);
-
-  /* 分隔线与杂项 */
-  --segment: var(--white);
-  --segment-foreground: var(--eclipse);
-  --border: oklch(90% 0.004 286.32);
-  --separator: oklch(74% 0.004 286.32);
-  --focus: var(--accent);
-  --link: var(--foreground);
-
-  /* 业务向后兼容别名 */
+  /* 主题与语义色彩映射到 Tailwind v4 实用类 */
   --color-primary: var(--accent);
+  --color-primary-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-surface: var(--surface);
-  --color-background: var(--background);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-surface-tertiary: var(--surface-tertiary);
+  --color-overlay: var(--overlay);
+  --color-overlay-foreground: var(--overlay-foreground);
+  --color-muted: var(--muted);
   --color-border: var(--border);
+  --color-divider: var(--border);
+  --color-separator: var(--separator);
+  --color-default: var(--default);
+  --color-default-foreground: var(--default-foreground);
+  --color-default-50: var(--surface-tertiary);
+  --color-default-100: var(--surface-secondary);
+  --color-default-200: var(--border);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
 
-  --app-primary: var(--accent);
-  --app-bg: var(--background);
-  --app-surface: var(--surface);
-  --app-text: var(--foreground);
-  --app-text-muted: var(--muted);
-  --app-border: var(--border);
-  --app-radius: 10px;
+  --shadow-panel: 0 8px 30px -4px rgba(0, 0, 0, 0.06);
+  --shadow-focus: 0 0 0 3px color-mix(in oklab, var(--accent) 25%, transparent);
+  --breakpoint-xs: 400px;
+  --default-transition-duration: 250ms;
 }
 
-.dark {
-  /* 基础颜色 */
-  --background: oklch(12% 0.005 285.823);
-  --foreground: var(--snow);
+/* =========================================================================
+   1. 基础默认主题：Sage 鼠尾草绿与暖石灰 (Morandi Nature Default)
+   ========================================================================= */
+:root {
+  /* 基础颜色 - 暖石米灰底色与深苔墨色 */
+  --background: oklch(0.978 0.005 95);
+  --foreground: oklch(0.22 0.012 145);
 
   /* 表面分层 */
-  --surface: oklch(0.2103 0.0059 285.89);
+  --surface: oklch(0.998 0.002 95);
   --surface-foreground: var(--foreground);
-  --surface-secondary: oklch(0.257 0.0037 286.14);
+  --surface-secondary: oklch(0.958 0.007 95);
   --surface-secondary-foreground: var(--foreground);
-  --surface-tertiary: oklch(0.2721 0.0024 247.91);
+  --surface-tertiary: oklch(0.942 0.009 95);
   --surface-tertiary-foreground: var(--foreground);
 
   /* 覆盖层与弱化 */
-  --overlay: oklch(0.2103 0.0059 285.89);
+  --overlay: oklch(0.998 0.002 95);
   --overlay-foreground: var(--foreground);
-  --backdrop: oklch(0% 0 0 / 20%);
-  --muted: oklch(70.5% 0.015 286.067);
+  --backdrop: oklch(0% 0 0 / 25%);
+  --muted: oklch(0.55 0.015 145);
 
   /* 默认中性色 */
-  --default: oklch(27.4% 0.006 286.033);
-  --default-foreground: var(--snow);
-  --default-hover: color-mix(in oklab, var(--default) 96%, var(--default-foreground) 4%);
-  --default-soft: color-mix(in oklab, var(--default) 15%, transparent);
+  --default: oklch(0.945 0.006 95);
+  --default-foreground: var(--foreground);
+  --default-hover: color-mix(in oklab, var(--default) 92%, var(--default-foreground) 8%);
+  --default-soft: color-mix(in oklab, var(--default) 20%, transparent);
   --default-soft-foreground: var(--default-foreground);
 
-  /* 强调色 */
-  --accent: oklch(0.6204 0.195 253.83);
-  --accent-foreground: var(--snow);
-  --accent-hover: color-mix(in oklab, var(--accent) 90%, var(--accent-foreground) 10%);
-  --accent-soft: color-mix(in oklab, var(--accent) 15%, transparent);
+  /* 强调色 (Sage Accent) */
+  --accent: oklch(0.58 0.11 145);
+  --accent-foreground: oklch(0.995 0.002 95);
+  --accent-hover: color-mix(in oklab, var(--accent) 88%, black 12%);
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, transparent);
   --accent-soft-foreground: var(--accent);
 
   /* 表单字段 */
-  --field-background: oklch(0.2103 0.0059 285.89);
+  --field-background: var(--surface);
   --field-foreground: var(--foreground);
   --field-placeholder: var(--muted);
   --field-border: transparent;
 
-  /* 状态色 */
-  --success: oklch(0.7329 0.1935 150.81);
-  --success-foreground: var(--eclipse);
-  --success-hover: color-mix(in oklab, var(--success) 90%, var(--success-foreground) 10%);
-  --success-soft: color-mix(in oklab, var(--success) 15%, transparent);
+  /* 状态色 - 温和低饱和 */
+  --success: oklch(0.68 0.14 148);
+  --success-foreground: oklch(0.99 0.002 95);
+  --success-hover: color-mix(in oklab, var(--success) 90%, black 10%);
+  --success-soft: color-mix(in oklab, var(--success) 14%, transparent);
   --success-soft-foreground: var(--success);
 
-  --warning: oklch(0.8203 0.1388 76.34);
-  --warning-foreground: var(--eclipse);
-  --warning-hover: color-mix(in oklab, var(--warning) 90%, var(--warning-foreground) 10%);
-  --warning-soft: color-mix(in oklab, var(--warning) 15%, transparent);
+  --warning: oklch(0.74 0.13 75);
+  --warning-foreground: oklch(0.20 0.01 75);
+  --warning-hover: color-mix(in oklab, var(--warning) 90%, black 10%);
+  --warning-soft: color-mix(in oklab, var(--warning) 14%, transparent);
   --warning-soft-foreground: var(--warning);
 
-  --danger: oklch(0.594 0.1967 24.63);
-  --danger-foreground: var(--snow);
-  --danger-hover: color-mix(in oklab, var(--danger) 90%, var(--danger-foreground) 10%);
-  --danger-soft: color-mix(in oklab, var(--danger) 15%, transparent);
+  --danger: oklch(0.62 0.16 28);
+  --danger-foreground: oklch(0.99 0.002 28);
+  --danger-hover: color-mix(in oklab, var(--danger) 90%, black 10%);
+  --danger-soft: color-mix(in oklab, var(--danger) 14%, transparent);
   --danger-soft-foreground: var(--danger);
 
   /* 分隔线与杂项 */
-  --segment: oklch(0.3964 0.01 285.93);
+  --segment: var(--white);
   --segment-foreground: var(--foreground);
-  --border: oklch(28% 0.006 286.033);
-  --separator: oklch(40% 0.006 286.033);
+  --border: oklch(0.915 0.006 95);
+  --separator: oklch(0.85 0.008 95);
   --focus: var(--accent);
   --link: var(--foreground);
 
@@ -184,7 +134,149 @@
   --app-text: var(--foreground);
   --app-text-muted: var(--muted);
   --app-border: var(--border);
-  --shadow-panel: 0 4px 24px -4px rgba(0, 0, 0, 0.45);
+  --app-radius: 14px;
+}
+
+/* =========================================================================
+   2. 莫兰迪配色分支：Terracotta 落日陶土 & 杏仁米白
+   ========================================================================= */
+[data-theme-palette="terracotta"] {
+  --background: oklch(0.976 0.008 65);
+  --foreground: oklch(0.23 0.015 45);
+
+  --surface: oklch(0.998 0.004 65);
+  --surface-secondary: oklch(0.955 0.01 65);
+  --surface-tertiary: oklch(0.938 0.012 65);
+
+  --overlay: oklch(0.998 0.004 65);
+  --muted: oklch(0.56 0.02 50);
+
+  --default: oklch(0.942 0.008 65);
+  --default-foreground: var(--foreground);
+
+  --accent: oklch(0.60 0.135 42);
+  --accent-foreground: oklch(0.995 0.003 65);
+  --accent-hover: color-mix(in oklab, var(--accent) 88%, black 12%);
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, transparent);
+  --accent-soft-foreground: var(--accent);
+
+  --border: oklch(0.91 0.008 65);
+  --separator: oklch(0.84 0.012 65);
+}
+
+/* =========================================================================
+   3. 莫兰迪配色分支：Slate 雾霾灰蓝 & 冷燕麦
+   ========================================================================= */
+[data-theme-palette="slate"] {
+  --background: oklch(0.974 0.005 240);
+  --foreground: oklch(0.22 0.012 245);
+
+  --surface: oklch(0.996 0.002 240);
+  --surface-secondary: oklch(0.952 0.008 240);
+  --surface-tertiary: oklch(0.936 0.01 240);
+
+  --overlay: oklch(0.996 0.002 240);
+  --muted: oklch(0.55 0.016 245);
+
+  --default: oklch(0.94 0.006 240);
+  --default-foreground: var(--foreground);
+
+  --accent: oklch(0.57 0.09 235);
+  --accent-foreground: oklch(0.995 0.002 240);
+  --accent-hover: color-mix(in oklab, var(--accent) 88%, black 12%);
+  --accent-soft: color-mix(in oklab, var(--accent) 12%, transparent);
+  --accent-soft-foreground: var(--accent);
+
+  --border: oklch(0.908 0.006 240);
+  --separator: oklch(0.835 0.01 240);
+}
+
+/* =========================================================================
+   4. 暗色模式基底 (Dark Mode - 深苔灰碳石)
+   ========================================================================= */
+.dark {
+  /* Sage Dark (默认) */
+  --background: oklch(0.155 0.008 145);
+  --foreground: oklch(0.94 0.005 145);
+
+  --surface: oklch(0.195 0.009 145);
+  --surface-foreground: var(--foreground);
+  --surface-secondary: oklch(0.235 0.009 145);
+  --surface-secondary-foreground: var(--foreground);
+  --surface-tertiary: oklch(0.265 0.009 145);
+  --surface-tertiary-foreground: var(--foreground);
+
+  --overlay: oklch(0.195 0.009 145);
+  --overlay-foreground: var(--foreground);
+  --backdrop: oklch(0% 0 0 / 50%);
+  --muted: oklch(0.68 0.012 145);
+
+  --default: oklch(0.24 0.008 145);
+  --default-foreground: var(--foreground);
+  --default-hover: color-mix(in oklab, var(--default) 90%, var(--default-foreground) 10%);
+  --default-soft: color-mix(in oklab, var(--default) 30%, transparent);
+  --default-soft-foreground: var(--default-foreground);
+
+  --accent: oklch(0.70 0.09 145);
+  --accent-foreground: oklch(0.15 0.008 145);
+  --accent-hover: color-mix(in oklab, var(--accent) 88%, white 12%);
+  --accent-soft: color-mix(in oklab, var(--accent) 18%, transparent);
+  --accent-soft-foreground: var(--accent);
+
+  --field-background: var(--surface);
+  --field-foreground: var(--foreground);
+  --field-placeholder: var(--muted);
+
+  --border: oklch(0.25 0.008 145);
+  --separator: oklch(0.33 0.008 145);
+  --segment: oklch(0.23 0.008 145);
+  --segment-foreground: var(--foreground);
+
+  --app-primary: var(--accent);
+  --app-bg: var(--background);
+  --app-surface: var(--surface);
+  --app-text: var(--foreground);
+  --app-text-muted: var(--muted);
+  --app-border: var(--border);
+  --shadow-panel: 0 12px 36px -4px rgba(0, 0, 0, 0.45);
+}
+
+.dark[data-theme-palette="terracotta"] {
+  --background: oklch(0.155 0.01 45);
+  --foreground: oklch(0.94 0.006 65);
+
+  --surface: oklch(0.195 0.011 45);
+  --surface-secondary: oklch(0.235 0.011 45);
+  --surface-tertiary: oklch(0.265 0.011 45);
+
+  --overlay: oklch(0.195 0.011 45);
+  --muted: oklch(0.68 0.015 50);
+
+  --default: oklch(0.24 0.01 45);
+  --accent: oklch(0.72 0.12 42);
+  --accent-foreground: oklch(0.15 0.01 45);
+
+  --border: oklch(0.25 0.01 45);
+  --separator: oklch(0.33 0.01 45);
+}
+
+.dark[data-theme-palette="slate"] {
+  --background: oklch(0.155 0.008 240);
+  --foreground: oklch(0.94 0.005 240);
+
+  --surface: oklch(0.195 0.009 240);
+  --surface-secondary: oklch(0.235 0.009 240);
+  --surface-tertiary: oklch(0.265 0.009 240);
+
+  --overlay: oklch(0.195 0.009 240);
+  --muted: oklch(0.68 0.012 245);
+
+  --default: oklch(0.24 0.008 240);
+  --accent: oklch(0.70 0.08 235);
+  --accent-foreground: oklch(0.15 0.008 240);
+
+  --border: oklch(0.25 0.008 240);
+  --separator: oklch(0.33 0.008 240);
 }
 
 @layer base {
@@ -199,80 +291,172 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
     overflow-x: hidden;
   }
 }
 
-/* 全站沉浸式背景与光效系统 */
+/* =========================================================================
+   5. 温润背景与质感卡片系统 (Gentle & Organic Aesthetics)
+   ========================================================================= */
 .bg-subtle-grid {
-  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-image: radial-gradient(color-mix(in oklab, var(--foreground) 4%, transparent) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.dark .bg-subtle-grid {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* 磨砂玻璃与发光面板 */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(229, 231, 235, 0.8);
-}
-
-.dark .glass-panel {
-  background: rgba(24, 24, 27, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
+/* 温润卡片 (Gentle Card) */
+.gentle-card,
+.crystal-card,
 .glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(229, 231, 235, 0.8);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  background: color-mix(in oklab, var(--surface) 86%, transparent);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 4px 20px -2px rgba(0, 0, 0, 0.03),
+    0 1px 3px 0 rgba(0, 0, 0, 0.01);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.dark .gentle-card,
+.dark .crystal-card,
 .dark .glass-card {
-  background: rgba(28, 28, 35, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.35);
+  background: color-mix(in oklab, var(--surface) 80%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  box-shadow: 
+    0 6px 24px -4px rgba(0, 0, 0, 0.35),
+    0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
+.gentle-card:hover,
+.crystal-card:hover,
 .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 32px -4px rgba(59, 130, 246, 0.12);
-  border-color: rgba(59, 130, 246, 0.35);
+  border-color: color-mix(in oklab, var(--accent) 35%, var(--border));
+  box-shadow: 
+    0 12px 30px -4px rgba(0, 0, 0, 0.06),
+    0 2px 8px 0 rgba(0, 0, 0, 0.02);
 }
 
+.dark .gentle-card:hover,
+.dark .crystal-card:hover,
 .dark .glass-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 36px -4px rgba(59, 130, 246, 0.2);
-  border-color: rgba(96, 165, 250, 0.35);
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+  box-shadow: 
+    0 16px 36px -4px rgba(0, 0, 0, 0.5),
+    0 4px 12px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* 渐变标题与文字光泽 */
+/* 温润毛玻璃顶栏 (Fluid Dock Shell) */
+.fluid-dock-shell {
+  position: relative;
+  height: 48px;
+  background: color-mix(in oklab, var(--surface) 82%, transparent);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 6px 24px -4px rgba(0, 0, 0, 0.04),
+    0 1px 4px 0 rgba(0, 0, 0, 0.01);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .fluid-dock-shell {
+  background: color-mix(in oklab, var(--surface) 82%, transparent);
+  border: 1px solid color-mix(in oklab, var(--border) 90%, transparent);
+  box-shadow: 
+    0 12px 32px -6px rgba(0, 0, 0, 0.5),
+    0 2px 8px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* 磁吸胶囊滑动指示器 */
+.dock-pill-indicator {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: 9999px;
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 20%, transparent);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .dock-pill-indicator {
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+/* 弹出菜单/下拉面板 */
+.dock-dropdown-card {
+  background: color-mix(in oklab, var(--surface) 95%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 16px 40px -8px rgba(0, 0, 0, 0.08),
+    0 4px 12px -2px rgba(0, 0, 0, 0.03);
+}
+
+.dark .dock-dropdown-card {
+  background: color-mix(in oklab, var(--surface) 95%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: 
+    0 20px 48px -8px rgba(0, 0, 0, 0.65),
+    0 4px 14px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* 移动端抽屉与底栏 */
+.mobile-bottom-dock {
+  height: 54px;
+  background: color-mix(in oklab, var(--surface) 88%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.08);
+}
+
+.dark .mobile-bottom-dock {
+  background: color-mix(in oklab, var(--surface) 88%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: 0 14px 40px -4px rgba(0, 0, 0, 0.7);
+}
+
+.mobile-drawer-sheet {
+  background: color-mix(in oklab, var(--surface) 98%, transparent);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+  box-shadow: 0 -12px 40px -6px rgba(0, 0, 0, 0.15);
+}
+
+.dark .mobile-drawer-sheet {
+  background: color-mix(in oklab, var(--surface) 98%, transparent);
+  border: 1px solid var(--border);
+  box-shadow: 0 -16px 48px -6px rgba(0, 0, 0, 0.75);
+}
+
+/* ⌘K 全局搜索面板 */
+.command-palette-backdrop {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.command-palette-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.25);
+}
+
+.dark .command-palette-modal {
+  box-shadow: 0 24px 60px -10px rgba(0, 0, 0, 0.8);
+}
+
+/* 渐变标题 */
 .text-gradient-primary {
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 50%, #db2777 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.dark .text-gradient-primary {
-  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--accent);
 }
 
 /* 呼出提示框 */
@@ -283,125 +467,33 @@
   font-size: 0.925rem;
 }
 .callout-note {
-  background: rgba(59, 130, 246, 0.08);
-  border-left: 4px solid #3b82f6;
+  background: color-mix(in oklab, var(--accent) 8%, transparent);
+  border-left: 4px solid var(--accent);
   color: var(--foreground);
 }
 .callout-tip {
-  background: rgba(16, 185, 129, 0.08);
-  border-left: 4px solid #10b981;
+  background: color-mix(in oklab, var(--success) 8%, transparent);
+  border-left: 4px solid var(--success);
   color: var(--foreground);
 }
 .callout-warning {
-  background: rgba(245, 158, 11, 0.08);
-  border-left: 4px solid #f59e0b;
+  background: color-mix(in oklab, var(--warning) 10%, transparent);
+  border-left: 4px solid var(--warning);
   color: var(--foreground);
 }
 
-/* 顶级 VisionOS 98% 超高密度高折射微晶灵动岛系统 (Zero-Penetration Crystal) */
-.dynamic-island-shell {
-  position: relative;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(48px) saturate(200%);
-  -webkit-backdrop-filter: blur(48px) saturate(200%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 
-    0 10px 30px -4px rgba(0, 0, 0, 0.08),
-    0 2px 8px -2px rgba(0, 0, 0, 0.03),
-    inset 0 1px 0 0 rgba(255, 255, 255, 1);
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dark .dynamic-island-shell {
-  background: rgba(18, 18, 24, 0.96);
-  backdrop-filter: blur(48px) saturate(200%);
-  -webkit-backdrop-filter: blur(48px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 
-    0 16px 40px -4px rgba(0, 0, 0, 0.8),
-    0 4px 12px -2px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.18);
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.dynamic-island-shell:hover {
-  background: #ffffff;
-  box-shadow: 
-    0 14px 36px -4px rgba(0, 0, 0, 0.12),
-    0 4px 12px -2px rgba(0, 0, 0, 0.04),
-    inset 0 1px 0 0 rgba(255, 255, 255, 1);
-}
-
-.dark .dynamic-island-shell:hover {
-  background: rgba(22, 22, 30, 0.98);
-  box-shadow: 
-    0 20px 48px -4px rgba(0, 0, 0, 0.9),
-    0 6px 16px -2px rgba(0, 0, 0, 0.6),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
-}
-
-/* 下拉微岛专属无框毛玻璃卡片 */
-.island-dropdown-menu {
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(48px) saturate(200%);
-  -webkit-backdrop-filter: blur(48px) saturate(200%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 
-    0 20px 48px -8px rgba(0, 0, 0, 0.16),
-    0 4px 12px -2px rgba(0, 0, 0, 0.05);
-}
-
-.dark .island-dropdown-menu {
-  background: rgba(22, 22, 30, 0.98);
-  backdrop-filter: blur(48px) saturate(200%);
-  -webkit-backdrop-filter: blur(48px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 
-    0 24px 56px -8px rgba(0, 0, 0, 0.9),
-    0 6px 18px -2px rgba(0, 0, 0, 0.6);
-}
-
-.jelly-slider {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* ⌘K 全局搜索面板样式 */
-.command-palette-backdrop {
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.command-palette-modal {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-}
-
-.dark .command-palette-modal {
-  background: rgba(20, 20, 28, 0.9);
-  backdrop-filter: blur(28px) saturate(200%);
-  -webkit-backdrop-filter: blur(28px) saturate(200%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.7);
-}
-
-/* 自定义优雅滚动条 */
+/* 自定义优雅微滚动条 */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.4);
+  background: color-mix(in oklab, var(--muted) 35%, transparent);
   border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.7);
+  background: color-mix(in oklab, var(--muted) 65%, transparent);
 }
-

@@ -9,6 +9,7 @@ import { cn } from "@trace/utils";
 export interface AvatarProps {
   src?: string;
   name?: string;
+  alt?: string;
   size?: "sm" | "md" | "lg";
   radius?: "none" | "sm" | "md" | "lg" | "full";
   isBordered?: boolean;
@@ -19,6 +20,7 @@ export interface AvatarProps {
 export const Avatar: React.FC<AvatarProps> = ({
   src,
   name,
+  alt,
   size = "md",
   radius = "full",
   isBordered = false,
@@ -56,7 +58,7 @@ export const Avatar: React.FC<AvatarProps> = ({
         className
       )}
     >
-      {src && <AvatarImage src={src} alt={name || "Avatar"} />}
+      {src && <AvatarImage src={src} alt={alt || name || "Avatar"} />}
       <AvatarFallback color={resolvedColor}>
         {name ? name.slice(0, 2).toUpperCase() : "U"}
       </AvatarFallback>
@@ -71,4 +73,3 @@ export const AvatarGroup: React.FC<{
 }> = ({ className, children }) => (
   <div className={cn("flex items-center -space-x-2", className)}>{children}</div>
 );
-
