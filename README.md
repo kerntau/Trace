@@ -88,20 +88,6 @@ pnpm typecheck
 
 apps/web 构建会生成内容数据并执行静态预渲染；部署前验证文章、分类、标签、友链和后台内容写入。
 
-## 07. ENGINEERING CONTRACT // 工程契约
-
-- 共享组件和主题变量优先放入 packages/，避免跨 app 重复实现。
-- 内容 schema 变化必须同步 web 构建与 admin 编辑器。
-- 新增依赖需评估 bundle 体积、可访问性和安全影响。
-- 以 DESIGN_SYSTEM.md 作为视觉令牌与交互约束的来源。
-
-## 08. ROADMAP // 演进路线
-
-- [x] web/admin 双应用与共享包
-- [x] 内容构建、SSG 和设计系统
-- [ ] 更完善的内容预览与发布流水线
-- [ ] 跨应用的权限与审计记录
-
-## 09. LICENSE // 许可证
+## 07. LICENSE // 许可证
 
 仓库当前未附 LICENSE 文件，各包的许可证声明需在分发前明确。
