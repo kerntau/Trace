@@ -8,7 +8,7 @@
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=111111)](https://react.dev)
 [![Turborepo](https://img.shields.io/badge/Turborepo-2-EF4444?style=for-the-badge&logo=turborepo&logoColor=white)](https://turbo.build/repo)
 [![Tailwind](https://img.shields.io/badge/Tailwind-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
-[![License](https://img.shields.io/badge/License-See%20LICENSE-555555?style=for-the-badge)](LICENSE)
+![License](https://img.shields.io/badge/License-See%20repository-555555?style=for-the-badge)
 
 </div>
 
@@ -104,4 +104,4 @@ apps/web 构建会生成内容数据并执行静态预渲染；部署前验证�
 
 ## 09. LICENSE // 许可证
 
-以仓库中的许可证与各包声明为准。
+仓库当前未附 LICENSE 文件，各包的许可证声明需在分发前明确。
